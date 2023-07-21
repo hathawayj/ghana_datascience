@@ -7,7 +7,7 @@
       @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
       @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
       @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
-      
+
       body { font-family: 'Droid Serif'; }
       h1 {
         font-family: 'Yanone Kaffeesatz';
@@ -26,7 +26,7 @@
       }
       .font20 {
         font-size: 20px;
-      }    
+      }
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
             /* Two-column layout */
       .left-column {
@@ -91,6 +91,8 @@ Notes for the _first_ slide!
 
 # Looking for automation
 
+Does this work?
+
 ---
 
 # Creating an accessible and secure workflow
@@ -109,12 +111,12 @@ Notes for the _first_ slide!
         var i = Math.floor(Math.random() * arguments.length);
         return arguments[i];
       };
-      
+
       remark.macros.scale = function (percentage) {
         var url = this;
         return '<img src="' + url + '" style="width: ' + percentage + '" />';
       };
-      
+
       var slideshow = remark.create({
         ratio: "16:9",
         highlightLanguage: 'javascript',
