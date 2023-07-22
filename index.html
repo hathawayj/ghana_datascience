@@ -31,14 +31,14 @@
             /* Two-column layout */
       .left-column {
         color: #777;
-        width: 30%;
+        width: 50%;
         float: left;
       }
         .left-column h2:last-of-type, .left-column h3:last-child {
           color: #000;
         }
       .right-column {
-        width: 70%;
+        width: 50%;
         float: right;
         padding-top: 1em;
       }
@@ -64,7 +64,7 @@ class: center, middle
 J. Hathaway - Data Science Program Chair
 
 ---
-class: font40
+class: font20
 
 # Disclaimers
 
@@ -81,7 +81,7 @@ I am focusing on modern tools for data science in Python - Polars over Pandas, P
 - Streamlit has grown very fast.  It was just acquired by Snowflake.
 
 ---
-
+class: font30
 # Agenda
 
 1. Introduction and Set-up (30 minutes)
@@ -91,7 +91,7 @@ I am focusing on modern tools for data science in Python - Polars over Pandas, P
 5. Streamlit for dashboards (45 minutes)
 
 ---
-
+class: font20
 # J. Hathaway
 
 Data Scientists with ~20 years of industry experience and 8 years in Academia.  Undergraduate degree in Economics (University of Utah) and a graduate degree in Statistics (BYU).
@@ -99,7 +99,7 @@ Data Scientists with ~20 years of industry experience and 8 years in Academia.  
 ![![:scale 95%]](https://raw.githubusercontent.com/hathawayj/ghana_datascience/master/img/family_2020.png)
 
 ---
-
+class: font20
 # Checking our installation
 
 1. [Python Installed](https://www.python.org/downloads/)
@@ -112,19 +112,76 @@ Data Scientists with ~20 years of industry experience and 8 years in Academia.  
 
 
 ---
-
-# Introduction to Polars and Data Munging
+class: font20
+# Introduction to Polars and Data Munging (speed)
 
 > Polars is a lightning fast DataFrame library/in-memory query engine. Its embarrassingly parallel execution, cache efficient algorithms and expressive API makes it perfect for efficient data wrangling, data pipelines, snappy APIs and so much more. Polars is about as fast as it gets, see the results in the [H2O.ai benchmark](https://h2oai.github.io/db-benchmark/).
 > [Polars Website](https://www.pola.rs/)
 
+![](https://raw.githubusercontent.com/pola-rs/polars-static/master/logos/polars_github_logo_rect_dark_name.svg)
+
 ---
 
+# Introduction to Polars and Data Munging (declarative API)
+
+Polars functions (Contexts & Expressions) are human readable and they align with standard SQL methods as well as the very popular big data package [PySpark](https://www.databricks.com/glossary/pyspark).
+
+## Contexts
+
+Selection: `df.select([..])`, `df.with_columns([..])`
+Filtering: `df.filter()`
+Groupby / Aggregation: `df.groupby(..).agg([..])`
+
+## Expressions
+
+```python
+new_df = df.select(
+  pl.col("names").n_unique().alias("unique"),
+  pl.approx_unique("names").alias("unique_approx"),
+  (pl.col("nrs").sum() + 5).alias("nrs + 5"),
+  pl.col("integers").cast(pl.Float32).alias("integers_as_floats"),
+  pl.col("animal").str.n_chars().alias("letter_count")
+)
+```
+
+![](https://raw.githubusercontent.com/pola-rs/polars-static/master/web/polars-logo-python.svg)
+
+---
+class: font30
 # Polars programming
 
 
----
+Now let's practice using Polars with our installation of Python
 
+1. Read data, melt data, and save as `.parquet`
+2. Munge data for visualization
+
+
+---
+class: font20
+# Introduction to Data Visualization
+
+.left_column[
+## Advantages of data visualization include:
+
+- Easily sharing information.
+- Interactively explore opportunities.
+- Visualize patterns and relationships.
+]
+.right_column[
+## Disadvantages include:
+
+- Biased or inaccurate information.
+- Correlation doesn’t always mean causation.
+- Core messages can get lost in translation.
+]
+
+---
+class: font20
+# Introduction to __Plotly__ for Data Visualization
+
+---
+class: font20
 # Introduction to Plotly and Data Visualization
 
 
