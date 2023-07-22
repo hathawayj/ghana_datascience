@@ -57,14 +57,14 @@
   <body>
     <textarea id="source">
 
-class: center, middle
+class: center, middle, font30
 
 # Introduction to Data Science Programming in Python
 
 J. Hathaway - Data Science Program Chair
 
 ---
-class: font20
+class: font30
 
 # Disclaimers
 
@@ -81,7 +81,7 @@ I am focusing on modern tools for data science in Python - Polars over Pandas, P
 - Streamlit has grown very fast.  It was just acquired by Snowflake.
 
 ---
-class: font30
+class: font40
 # Agenda
 
 1. Introduction and Set-up (30 minutes)
@@ -91,15 +91,17 @@ class: font30
 5. Streamlit for dashboards (45 minutes)
 
 ---
-class: font20
+class: font30
 # J. Hathaway
 
 Data Scientists with ~20 years of industry experience and 8 years in Academia.  Undergraduate degree in Economics (University of Utah) and a graduate degree in Statistics (BYU).
 
+<p align="center"></p>
 ![![:scale 95%]](https://raw.githubusercontent.com/hathawayj/ghana_datascience/master/img/family_2020.png)
+</p>
 
 ---
-class: font20
+class: font40
 # Checking our installation
 
 1. [Python Installed](https://www.python.org/downloads/)
@@ -118,7 +120,7 @@ class: font20
 > Polars is a lightning fast DataFrame library/in-memory query engine. Its embarrassingly parallel execution, cache efficient algorithms and expressive API makes it perfect for efficient data wrangling, data pipelines, snappy APIs and so much more. Polars is about as fast as it gets, see the results in the [H2O.ai benchmark](https://h2oai.github.io/db-benchmark/).
 > [Polars Website](https://www.pola.rs/)
 
-![](https://raw.githubusercontent.com/pola-rs/polars-static/master/logos/polars_github_logo_rect_dark_name.svg)
+![![:scale 45%]](https://raw.githubusercontent.com/pola-rs/polars-static/master/logos/polars_github_logo_rect_dark_name.svg)
 
 ---
 
@@ -144,37 +146,41 @@ new_df = df.select(
 )
 ```
 
-![](https://raw.githubusercontent.com/pola-rs/polars-static/master/web/polars-logo-python.svg)
+![![:scale 15%]](https://raw.githubusercontent.com/pola-rs/polars-static/master/web/polars-logo-python.svg)
 
 ---
-class: font30
+class: font40
 # Polars programming
 
 
 Now let's practice using Polars with our installation of Python
 
-1. Read data, melt data, and save as `.parquet`
-2. Munge data for visualization
+1. Read data, melt data, and save as `.parquet` (01_read.py)
+2. Munge data for visualization (02_munge.py)
 
 
 ---
 class: font20
 # Introduction to Data Visualization
 
-.left_column[
+Our eyes are drawn to [colors and patterns](https://www.tableau.com/learn/whitepapers/tableau-visual-guidebook). We can quickly identify red from blue, and squares from circles. Our culture is visual, including everything from art and advertisements to TV and movies. Data visualization is another form of visual art that grabs our interest and keeps our eyes on the message.
+
+.left-column[
 ## Advantages of data visualization include:
 
 - Easily sharing information.
 - Interactively explore opportunities.
 - Visualize patterns and relationships.
 ]
-.right_column[
+.right-column[
 ## Disadvantages include:
 
 - Biased or inaccurate information.
 - Correlation doesn’t always mean causation.
 - Core messages can get lost in translation.
 ]
+
+[Tableau Reference](https://www.tableau.com/learn/articles/data-visualization)
 
 ---
 class: font20
