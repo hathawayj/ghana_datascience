@@ -42,6 +42,9 @@
         float: right;
         padding-top: 1em;
       }
+      .right-column h2:last-of-type, .right-column h3:last-child {
+          color: #000;
+        }
       .inverse {
         background: #272822;
         color: #e4e4e1;
@@ -160,20 +163,20 @@ Now let's practice using Polars with our installation of Python
 
 
 ---
-class: font20
+class: font30
 # Introduction to Data Visualization
 
 Our eyes are drawn to [colors and patterns](https://www.tableau.com/learn/whitepapers/tableau-visual-guidebook). We can quickly identify red from blue, and squares from circles. Our culture is visual, including everything from art and advertisements to TV and movies. Data visualization is another form of visual art that grabs our interest and keeps our eyes on the message.
 
 .left-column[
-## Advantages of data visualization include:
+### Advantages of data visualization:
 
 - Easily sharing information.
 - Interactively explore opportunities.
 - Visualize patterns and relationships.
 ]
 .right-column[
-## Disadvantages include:
+### Disadvantages:
 
 - Biased or inaccurate information.
 - Correlation doesn’t always mean causation.
@@ -183,8 +186,15 @@ Our eyes are drawn to [colors and patterns](https://www.tableau.com/learn/whitep
 [Tableau Reference](https://www.tableau.com/learn/articles/data-visualization)
 
 ---
-class: font20
+class: font30
 # Introduction to __Plotly__ for Data Visualization
+
+Built on top of the Plotly JavaScript library (plotly.js), plotly enables Python users to create beautiful interactive web-based visualizations that can be displayed in Jupyter notebooks, saved to standalone HTML files, or served as part of pure Python-built web applications. The plotly Python library is sometimes referred to as "plotly.py" to differentiate it from the JavaScript library.
+
+Plotly.js is built on top of d3.js and stack.gl, Plotly.js is a high-level, declarative charting library. plotly.js ships with over 40 chart types, including 3D charts, statistical graphs, and SVG maps.
+
+![![:scale 25%]](https://raw.githubusercontent.com/hathawayj/ghana_datascience/master/img/plotly_charts.png)
+
 
 ---
 class: font20
