@@ -92,4 +92,4 @@ The scripts folder has the starting scripts for each of the activities we will c
 
 ## Slides
 
-The [index.html](
+The [HTML Slides](https://hathawayj.github.io/ghana_datascience/) and [pdf slides](https://github.com/hathawayj/ghana_datascience/blob/slides/slides.pdf)
