@@ -102,7 +102,7 @@ class: font30
 
 Data Scientists with ~20 years of industry experience and 8 years in Academia.  Undergraduate degree in Economics (University of Utah) and a graduate degree in Statistics (BYU).
 
-![:scale 95%](https://raw.githubusercontent.com/hathawayj/ghana_datascience/master/img/family_2020.png)
+![:scale 65%](https://raw.githubusercontent.com/hathawayj/ghana_datascience/master/img/family_2020.png)
 
 
 ---
@@ -126,7 +126,7 @@ class: font20
 > </br>
 > [Polars Website](https://www.pola.rs/)
 
-![:scale 15%](https://raw.githubusercontent.com/pola-rs/polars-static/master/logos/polars_github_logo_rect_dark_name.svg)
+![:scale 50%](https://raw.githubusercontent.com/pola-rs/polars-static/master/logos/polars_github_logo_rect_dark_name.svg)
 
 ---
 
@@ -162,6 +162,8 @@ Now let's practice using Polars with our installation of Python
 1. Read data, melt data, and save as `.parquet` (01_read.py)
 2. Munge data for visualization (02_munge.py)
 
+![:scale 50%](https://raw.githubusercontent.com/pola-rs/polars-static/master/logos/polars_github_logo_rect_dark_name.svg)
+
 
 ---
 class: font20
@@ -192,7 +194,7 @@ class: font20
 
 The Plotly Python package leverages the plotly.js JavaScript library to enables Python users to create beautiful interactive web-based visualizations. Plotly.js is built on top of d3.js and stack.gl, Plotly.js is a high-level, declarative charting library. plotly.js ships with over 40 chart types, including 3D charts, statistical graphs, and SVG maps.
 
-![:scale 15%](https://raw.githubusercontent.com/hathawayj/ghana_datascience/master/img/plotly_charts.png)
+![:scale 50%](https://raw.githubusercontent.com/hathawayj/ghana_datascience/master/img/plotly_charts.png)
 
 
 ---
@@ -204,11 +206,27 @@ Now let's practice using Plotly with our installation of Python
 1. Plotly practice (03_begin_plotly.py)
 2. Data visualization with our munged data (03_explore.py)
 
+```python
+import plotly.express as px
+df = px.data.iris() # iris is a pandas DataFrame
+fig = px.scatter(df, x="sepal_width", y="sepal_length")
+fig.show()
+```
+
+```python
+import plotly.express as px
+df = px.data.gapminder().query("continent == 'Oceania'")
+fig = px.line(df, x='year', y='lifeExp', color='country', markers=True)
+fig.show()
+```
+
 ---
 class: font30
 # Introduction to Dashboarding
 
+> A dashboard is a way of displaying various types of visual data in one place. Usually, a dashboard is intended to convey different, but related information in an easy-to-digest form. And oftentimes, this includes things like key performance indicators (KPI)'s or other important business metrics that stakeholders need to see and understand at a glance.
 
+![](https://www.vmwareopsguide.com/dashboards/chapter-1-design-considerations/3.1.2-the-art-of-dashboard/3.1.2-fig-2.png)
 
 ---
 class: font30
@@ -216,8 +234,12 @@ class: font30
 
 Streamlit turns data scripts into shareable web apps in minutes in pure Python. A faster way to build and share data apps with no front‑end experience required.
 
+.left-column[
+![:scale 50%](vwmahttps://www.vmwareopsguide.com/dashboards/chapter-1-design-considerations/3.1.2-the-art-of-dashboard/3.1.2-fig-1.png)
+]
+.right-column[
 ![:scale 50%](https://raw.githubusercontent.com/hathawayj/ghana_datascience/master/img/streamlit_small.gif)
-
+]
 
 ---
 class: font40
