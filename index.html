@@ -165,6 +165,16 @@ Now let's practice using Polars with our installation of Python
 
 ![:scale 75%](https://raw.githubusercontent.com/pola-rs/polars-static/master/logos/polars_github_logo_rect_dark_name.svg)
 
+---
+class: font20
+# Introduction to Parquet files
+
+When users ask for data or when many institutions share data the files are usually some type of text file (`.txt`, `.csv`, `.tsv`) or an Excel file. The most ubiquitous format is `.csv`. However, these formats limit effective data handling.  We want a format that stores small, reads fast, and maintains variable types. The [Apache Arrow project](https://arrow.apache.org/) facilitates the goal with the `.parquet` and `.feather` formats and their respective packages for leveraging those formats.
+
+The following table from the [openbridge blog](https://blog.openbridge.com/how-to-be-a-hero-with-powerful-parquet-google-and-amazon-f2ae0f35ee04) provides a strong example of the benefits of these new formats.
+
+![:scale 95%](https://raw.githubusercontent.com/pola-rs/polars-static/master/logos/csv_parquet.png)
+
 
 ---
 class: font20
@@ -223,12 +233,19 @@ fig.show()
 
 ---
 class: font20
-# Introduction to Dashboarding
+# Introduction to Dashboarding (Structured design)
 
 > A dashboard is a way of displaying various types of visual data in one place that let's the user focus on one general topic but explore questions within that topic.
 
 
-![:scale 45%](https://raw.githubusercontent.com/hathawayj/ghana_datascience/master/img/dashboard_vmware_balance.png)
+![:scale 65%](https://raw.githubusercontent.com/hathawayj/ghana_datascience/master/img/dashboard_vmware_balance.png)
+
+---
+class: font20
+# Introduction to Dashboarding (Audience)
+
+> A dashboard is a way of displaying various types of visual data in one place that let's the user focus on one general topic but explore questions within that topic.
+
 
 ![:scale 45%](https://raw.githubusercontent.com/hathawayj/ghana_datascience/master/img/dashboard_vmware_user.png)
 
