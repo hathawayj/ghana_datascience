@@ -27,14 +27,17 @@
       .font20 {
         font-size: 20px;
       }
-      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-code, .remark-inline-code {
+         font-family: 'Ubuntu Mono';
+         font-size: 20px;
+         }
             /* Two-column layout */
       .left-column {
         color: #777;
         width: 50%;
         float: left;
       }
-        .left-column h2:last-of-type, .left-column h3:last-child {
+      .left-column h2:last-of-type, .left-column h3:last-child {
           color: #000;
         }
       .right-column {
@@ -99,9 +102,8 @@ class: font30
 
 Data Scientists with ~20 years of industry experience and 8 years in Academia.  Undergraduate degree in Economics (University of Utah) and a graduate degree in Statistics (BYU).
 
-<p align="center"></p>
 ![![:scale 95%]](https://raw.githubusercontent.com/hathawayj/ghana_datascience/master/img/family_2020.png)
-</p>
+
 
 ---
 class: font40
@@ -121,9 +123,10 @@ class: font20
 # Introduction to Polars and Data Munging (speed)
 
 > Polars is a lightning fast DataFrame library/in-memory query engine. Its embarrassingly parallel execution, cache efficient algorithms and expressive API makes it perfect for efficient data wrangling, data pipelines, snappy APIs and so much more. Polars is about as fast as it gets, see the results in the [H2O.ai benchmark](https://h2oai.github.io/db-benchmark/).
+> </br>
 > [Polars Website](https://www.pola.rs/)
 
-![![:scale 45%]](https://raw.githubusercontent.com/pola-rs/polars-static/master/logos/polars_github_logo_rect_dark_name.svg)
+![![:scale 15%]](https://raw.githubusercontent.com/pola-rs/polars-static/master/logos/polars_github_logo_rect_dark_name.svg)
 
 ---
 
@@ -133,9 +136,9 @@ Polars functions (Contexts & Expressions) are human readable and they align with
 
 ## Contexts
 
-Selection: `df.select([..])`, `df.with_columns([..])`
-Filtering: `df.filter()`
-Groupby / Aggregation: `df.groupby(..).agg([..])`
+- __Selection:__ `df.select([..])`, `df.with_columns([..])`
+- __Filtering:__ `df.filter()`
+- __Groupby/Aggregation:__ `df.groupby(..).agg([..])`
 
 ## Expressions
 
@@ -149,10 +152,8 @@ new_df = df.select(
 )
 ```
 
-![![:scale 15%]](https://raw.githubusercontent.com/pola-rs/polars-static/master/web/polars-logo-python.svg)
-
 ---
-class: font40
+class: font30
 # Polars programming
 
 
@@ -163,7 +164,7 @@ Now let's practice using Polars with our installation of Python
 
 
 ---
-class: font30
+class: font20
 # Introduction to Data Visualization
 
 Our eyes are drawn to [colors and patterns](https://www.tableau.com/learn/whitepapers/tableau-visual-guidebook). We can quickly identify red from blue, and squares from circles. Our culture is visual, including everything from art and advertisements to TV and movies. Data visualization is another form of visual art that grabs our interest and keeps our eyes on the message.
@@ -186,14 +187,14 @@ Our eyes are drawn to [colors and patterns](https://www.tableau.com/learn/whitep
 [Tableau Reference](https://www.tableau.com/learn/articles/data-visualization)
 
 ---
-class: font30
+class: font20
 # Introduction to __Plotly__ for Data Visualization
 
 Built on top of the Plotly JavaScript library (plotly.js), plotly enables Python users to create beautiful interactive web-based visualizations that can be displayed in Jupyter notebooks, saved to standalone HTML files, or served as part of pure Python-built web applications. The plotly Python library is sometimes referred to as "plotly.py" to differentiate it from the JavaScript library.
 
 Plotly.js is built on top of d3.js and stack.gl, Plotly.js is a high-level, declarative charting library. plotly.js ships with over 40 chart types, including 3D charts, statistical graphs, and SVG maps.
 
-![![:scale 25%]](https://raw.githubusercontent.com/hathawayj/ghana_datascience/master/img/plotly_charts.png)
+![![:scale 15%]](https://raw.githubusercontent.com/hathawayj/ghana_datascience/master/img/plotly_charts.png)
 
 
 ---
