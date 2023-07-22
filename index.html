@@ -90,6 +90,8 @@ I am focusing on modern tools for data science in Python - Polars over Pandas, P
 class: font40
 # Agenda
 
+Exemplify the data science process - Extract, Transform, Load, Analyze
+
 1. Introduction and Set-up (30 minutes)
 2. Polars for data munging (45 minutes)
 3. Break (10 minutes)
@@ -102,8 +104,7 @@ class: font30
 
 Data Scientists with ~20 years of industry experience and 8 years in Academia.  Undergraduate degree in Economics (University of Utah) and a graduate degree in Statistics (BYU).
 
-![:scale 65%](https://raw.githubusercontent.com/hathawayj/ghana_datascience/master/img/family_2020.png)
-
+![:scale 50%](https://raw.githubusercontent.com/hathawayj/ghana_datascience/master/img/family_2020.png)
 
 ---
 class: font40
@@ -126,7 +127,7 @@ class: font20
 > </br>
 > [Polars Website](https://www.pola.rs/)
 
-![:scale 50%](https://raw.githubusercontent.com/pola-rs/polars-static/master/logos/polars_github_logo_rect_dark_name.svg)
+![:scale 60%](https://raw.githubusercontent.com/pola-rs/polars-static/master/logos/polars_github_logo_rect_dark_name.svg)
 
 ---
 
@@ -162,7 +163,7 @@ Now let's practice using Polars with our installation of Python
 1. Read data, melt data, and save as `.parquet` (01_read.py)
 2. Munge data for visualization (02_munge.py)
 
-![:scale 50%](https://raw.githubusercontent.com/pola-rs/polars-static/master/logos/polars_github_logo_rect_dark_name.svg)
+![:scale 75%](https://raw.githubusercontent.com/pola-rs/polars-static/master/logos/polars_github_logo_rect_dark_name.svg)
 
 
 ---
@@ -226,7 +227,11 @@ class: font30
 
 > A dashboard is a way of displaying various types of visual data in one place. Usually, a dashboard is intended to convey different, but related information in an easy-to-digest form. And oftentimes, this includes things like key performance indicators (KPI)'s or other important business metrics that stakeholders need to see and understand at a glance.
 
+
+![](vwmahttps://www.vmwareopsguide.com/dashboards/chapter-1-design-considerations/3.1.2-the-art-of-dashboard/3.1.2-fig-1.png)
+
 ![](https://www.vmwareopsguide.com/dashboards/chapter-1-design-considerations/3.1.2-the-art-of-dashboard/3.1.2-fig-2.png)
+
 
 ---
 class: font30
@@ -234,12 +239,9 @@ class: font30
 
 Streamlit turns data scripts into shareable web apps in minutes in pure Python. A faster way to build and share data apps with no front‑end experience required.
 
-.left-column[
-![:scale 50%](vwmahttps://www.vmwareopsguide.com/dashboards/chapter-1-design-considerations/3.1.2-the-art-of-dashboard/3.1.2-fig-1.png)
-]
-.right-column[
+
 ![:scale 50%](https://raw.githubusercontent.com/hathawayj/ghana_datascience/master/img/streamlit_small.gif)
-]
+
 
 ---
 class: font40
@@ -248,6 +250,23 @@ class: font40
 Now let's practice using Streamlit with our installation of Python
 
 1. Streamlit practice (04_dashboard.py)
+
+```python
+import streamlit as st
+import polars as pl
+
+st.write("Here's our first attempt at using data to create a table:")
+st.write(pl.DataFrame({
+    'first column': [1, 2, 3, 4],
+    'second column': [10, 20, 30, 40]
+}))
+```
+
+---
+class: font40
+# Next Steps
+
+
 
 ---
 
