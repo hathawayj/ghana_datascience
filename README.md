@@ -35,7 +35,7 @@ msg = "Hello again"
 print(msg)
 ```
 
-![img](https://file+.vscode-resource.vscode-cdn.net/Users/hathawayj/git/hathawayj/ghana_datascience/img/vscode-code-cells-01.png)
+![img](img/vscode-code-cells-01.png)
 
 ### Python Packages
 
