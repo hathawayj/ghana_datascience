@@ -20,22 +20,237 @@
   <body onload="var slideshow = remark.create();">
     <textarea id="source">
 
-class: center, middle
+      
+class: center, middle, font30
 
-# My Awesome Presentation
+# Introduction to Data Science Programming in Python
+
+J. Hathaway - Data Science Program Chair
 
 ---
+class: font30
 
+# Disclaimers
+
+I am focusing on modern tools for data science in Python - Polars over Pandas, Plotly over Matplotlib, and Streamlit over Dash.  These modern tools reflect the best of
+
+- declarative programming (task focused programming)
+- clean grammar (language abstraction that allows intuitive but complex actions)
+- industry respect (all three tools are very popular for the quality and have rapid growth)
+
+???
+
+- Highlight that Pandas is still the industry standard but that the grammar and speed of polars should compete with Pandas in the long run.
+- Plotly is probably close to the industry standard. However, Matplotlib is the default plotting environment for many data science packages.
+- Streamlit has grown very fast.  It was just acquired by Snowflake.
+
+---
+class: font40
 # Agenda
 
-1. Introduction
-2. Deep-dive
-3. ...
+Exemplify the data science process - Extract, Transform, Load, Analyze
 
-[NOTE]: This file is portable; you don't need any other file, or an internet connection for this presentation.
+1. Introduction and Set-up (30 minutes)
+2. Polars for data munging (45 minutes)
+3. Break (10 minutes)
+4. Plotly for data visualization (45 minutes)
+5. Streamlit for dashboards (45 minutes)
+
+---
+class: font30
+# J. Hathaway
+
+Data Scientists with ~20 years of industry experience and 8 years in Academia.  Undergraduate degree in Economics (University of Utah) and a graduate degree in Statistics (BYU).
+
+![:scale 50%](https://raw.githubusercontent.com/hathawayj/ghana_datascience/master/img/family_2020.png)
+
+---
+class: font40
+# Checking our installation
+
+1. [Python Installed](https://www.python.org/downloads/)
+2. [VS Code Installed](https://code.visualstudio.com/download)
+3. [Python VS Code Extension Installed](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+4. Python packages installed.
+      ```python
+      pip install polars[all] plotly streamlit
+      ```
+
+
+---
+class: font20
+# Introduction to Polars and Data Munging (speed)
+
+> Polars is a lightning fast DataFrame library/in-memory query engine. Its embarrassingly parallel execution, cache efficient algorithms and expressive API makes it perfect for efficient data wrangling, data pipelines, snappy APIs and so much more. Polars is about as fast as it gets, see the results in the [H2O.ai benchmark](https://h2oai.github.io/db-benchmark/).
+> </br>
+> [Polars Website](https://www.pola.rs/)
+
+![:scale 60%](https://raw.githubusercontent.com/pola-rs/polars-static/master/logos/polars_github_logo_rect_dark_name.svg)
+
 ---
 
-# Introduction
+# Introduction to Polars and Data Munging (declarative API)
+
+Polars functions (Contexts & Expressions) are human readable and they align with standard SQL methods as well as the very popular big data package [PySpark](https://www.databricks.com/glossary/pyspark).
+
+## Contexts
+
+- __Selection:__ `df.select([..])`, `df.with_columns([..])`
+- __Filtering:__ `df.filter()`
+- __Groupby/Aggregation:__ `df.groupby(..).agg([..])`
+
+## Expressions
+
+```python
+new_df = df.select(
+  pl.col("names").n_unique().alias("unique"),
+  pl.approx_unique("names").alias("unique_approx"),
+  (pl.col("nrs").sum() + 5).alias("nrs + 5"),
+  pl.col("integers").cast(pl.Float32).alias("integers_as_floats"),
+  pl.col("animal").str.n_chars().alias("letter_count")
+)
+```
+
+---
+class: font30
+# Polars programming
+
+
+Now let's practice using Polars with our installation of Python
+
+1. Read data, melt data, and save as `.parquet` (01_read.py)
+2. Munge data for visualization (02_munge.py)
+
+![:scale 75%](https://raw.githubusercontent.com/pola-rs/polars-static/master/logos/polars_github_logo_rect_dark_name.svg)
+
+---
+class: font20
+# Introduction to Parquet files
+
+When users ask for data or when many institutions share data the files are usually some type of text file (`.txt`, `.csv`, `.tsv`) or an Excel file. The most ubiquitous format is `.csv`. However, these formats limit effective data handling.  We want a format that stores small, reads fast, and maintains variable types. The [Apache Arrow project](https://arrow.apache.org/) facilitates the goal with the `.parquet` and `.feather` formats and their respective packages for leveraging those formats.
+
+The following table from the [openbridge blog](https://blog.openbridge.com/how-to-be-a-hero-with-powerful-parquet-google-and-amazon-f2ae0f35ee04) provides a strong example of the benefits of these new formats.
+
+![:scale 95%](https://raw.githubusercontent.com/hathawayj/ghana_datascience/master/img/csv_parquet.png)
+
+
+---
+class: font20
+# Introduction to Data Visualization
+
+Our eyes are drawn to [colors and patterns](https://www.tableau.com/learn/whitepapers/tableau-visual-guidebook). We can quickly identify red from blue, and squares from circles. Our culture is visual, including everything from art and advertisements to TV and movies. Data visualization is another form of visual art that grabs our interest and keeps our eyes on the message.
+
+.left-column[
+### Advantages of data visualization:
+
+- Easily sharing information.
+- Interactively explore opportunities.
+- Visualize patterns and relationships.
+]
+.right-column[
+### Disadvantages:
+
+- Biased or inaccurate information.
+- Correlation doesn’t always mean causation.
+- Core messages can get lost in translation.
+]
+
+[Tableau Reference](https://www.tableau.com/learn/articles/data-visualization)
+
+---
+class: font20
+# Introduction to __Plotly__ for Data Visualization
+
+The Plotly Python package leverages the plotly.js JavaScript library to enables Python users to create beautiful interactive web-based visualizations. Plotly.js is built on top of d3.js and stack.gl, Plotly.js is a high-level, declarative charting library. plotly.js ships with over 40 chart types, including 3D charts, statistical graphs, and SVG maps.
+
+![:scale 50%](https://raw.githubusercontent.com/hathawayj/ghana_datascience/master/img/plotly_charts.png)
+
+
+---
+class: font30
+# Plotly programming
+
+Now let's practice using Plotly with our installation of Python
+
+1. Plotly practice (03_begin_plotly.py)
+2. Data visualization with our munged data (03_explore.py)
+
+```python
+import plotly.express as px
+df = px.data.iris() # iris is a pandas DataFrame
+fig = px.scatter(df, x="sepal_width", y="sepal_length")
+fig.show()
+```
+
+```python
+import plotly.express as px
+df = px.data.gapminder().query("continent == 'Oceania'")
+fig = px.line(df, x='year', y='lifeExp', color='country', markers=True)
+fig.show()
+```
+
+---
+class: font20
+# Introduction to Dashboarding (Structured design)
+
+> A dashboard is a way of displaying various types of visual data in one place that let's the user focus on one general topic but explore questions within that topic.
+
+
+![:scale 65%](https://raw.githubusercontent.com/hathawayj/ghana_datascience/master/img/dashboard_vmware_balance.png)
+
+---
+class: font20
+# Introduction to Dashboarding (Audience)
+
+> A dashboard is a way of displaying various types of visual data in one place that let's the user focus on one general topic but explore questions within that topic.
+
+
+![:scale 45%](https://raw.githubusercontent.com/hathawayj/ghana_datascience/master/img/dashboard_vmware_user.png)
+
+[Reference]([The Art of Dashboard :: VMware Operations Guide](https://www.vmwareopsguide.com/dashboards/chapter-1-design-considerations/3.1.2-the-art-of-dashboard/))
+
+---
+class: font30
+# Introduction to __Streamlit__ dashboards
+
+Streamlit turns data scripts into shareable web apps in minutes in pure Python. A faster way to build and share data apps with no front‑end experience required.
+
+
+![:scale 60%](https://raw.githubusercontent.com/hathawayj/ghana_datascience/master/img/streamlit_small.gif)
+
+
+---
+class: font40
+# Streamlit programming
+
+Now let's practice using Streamlit with our installation of Python
+
+1. Streamlit practice (04_dashboard.py)
+
+```python
+import streamlit as st
+import polars as pl
+
+st.write("Here's our first attempt at using data to create a table:")
+st.write(pl.DataFrame({
+    'first column': [1, 2, 3, 4],
+    'second column': [10, 20, 30, 40]
+}))
+```
+
+---
+class: font40
+# Next Steps
+
+1. Program your day (incorporate programming into your daily work)
+2. Grow your skills -- [BYU-I DS 250 Course](https://byuistats.github.io/DS250-Course/) and [BYU-I CSE 450 Course](https://byui-cse.github.io/cse450-course/)
+3. Challenge others -- [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday)
+4. Display your talent -- [Github.com](https://github.com/hathawayj)
+5. Offer your services -- Find small projects to do for friends and contacts
+6. Apply for jobs -- [LinkedIn](https://www.linkedin.com/jobs/search/?currentJobId=3636093741&geoId=104353902&keywords=data%20science&location=Greater%20Accra%20Region%2C%20Ghana&originalSubdomain=gh&refresh=true)
+
+
+---
 
     </textarea>
     <script type="text/javascript">
